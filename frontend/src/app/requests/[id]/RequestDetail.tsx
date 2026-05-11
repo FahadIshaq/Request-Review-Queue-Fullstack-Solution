@@ -32,29 +32,33 @@ export function RequestDetail({
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
       <section className="lg:col-span-2 space-y-6">
-        <header className="card p-6">
-          <div className="flex flex-wrap items-start justify-between gap-3">
-            <div className="space-y-1">
-              <div className="text-xs uppercase tracking-wide text-ink-subtle dark:text-slate-500">
-                {request.id}
+        <header className="card overflow-hidden">
+          <div className="bg-gradient-to-br from-brand-50/60 via-white to-white p-6 dark:from-brand-900/20 dark:via-slate-900 dark:to-slate-900">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="space-y-1.5">
+                <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-ink-subtle dark:text-slate-500">
+                  {request.id}
+                </div>
+                <h1 className="text-2xl font-semibold tracking-tight text-ink dark:text-slate-100 sm:text-[1.75rem]">
+                  {request.title}
+                </h1>
+                <p className="text-sm text-ink-muted dark:text-slate-400">
+                  Submitted by{" "}
+                  <span className="font-medium text-ink dark:text-slate-200">
+                    {request.submitter}
+                  </span>{" "}
+                  · {formatDateTime(request.createdAt)}
+                </p>
               </div>
-              <h1 className="text-2xl font-semibold text-ink dark:text-slate-100">
-                {request.title}
-              </h1>
-              <p className="text-sm text-ink-muted dark:text-slate-400">
-                Submitted by{" "}
-                <span className="font-medium">{request.submitter}</span> ·{" "}
-                {formatDateTime(request.createdAt)}
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-2">
-              <StatusPill status={request.status} />
-              <PriorityPill priority={request.priority} />
-              <DuePill state={request.dueState} />
+              <div className="flex flex-wrap items-center gap-1.5">
+                <StatusPill status={request.status} />
+                <PriorityPill priority={request.priority} />
+                <DuePill state={request.dueState} />
+              </div>
             </div>
           </div>
 
-          <dl className="mt-6 grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
+          <dl className="grid grid-cols-2 divide-x divide-y divide-slate-100 border-t border-slate-200/80 text-sm dark:divide-slate-800 dark:border-slate-800 sm:grid-cols-4 sm:divide-y-0">
             <Field label="Owner">
               {request.owner ?? (
                 <span className="italic text-ink-subtle dark:text-slate-500">
@@ -65,11 +69,13 @@ export function RequestDetail({
             <Field label="Due date">{formatDate(request.dueDate)}</Field>
             <Field label="Required fields">
               {request.requiredFieldsComplete ? (
-                <span className="font-medium text-emerald-700 dark:text-emerald-300">
+                <span className="inline-flex items-center gap-1 font-medium text-emerald-700 dark:text-emerald-300">
+                  <CheckIcon className="h-3.5 w-3.5" />
                   Complete
                 </span>
               ) : (
-                <span className="font-medium text-amber-700 dark:text-amber-300">
+                <span className="inline-flex items-center gap-1 font-medium text-amber-700 dark:text-amber-300">
+                  <DotIcon className="h-3.5 w-3.5" />
                   Incomplete
                 </span>
               )}
@@ -80,9 +86,13 @@ export function RequestDetail({
           </dl>
 
           {request.status === "REJECTED" && request.rejectionReason && (
-            <div className="mt-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-200">
-              <div className="font-semibold">Rejection reason</div>
-              <div>{request.rejectionReason}</div>
+            <div className="border-t border-red-200/70 bg-red-50/70 px-6 py-4 text-sm text-red-800 dark:border-red-900/40 dark:bg-red-900/20 dark:text-red-200">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-red-700/80 dark:text-red-300/80">
+                Rejection reason
+              </div>
+              <div className="mt-1 text-red-900 dark:text-red-100">
+                {request.rejectionReason}
+              </div>
             </div>
           )}
         </header>
@@ -134,12 +144,28 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <dt className="text-xs font-semibold uppercase tracking-wide text-ink-subtle dark:text-slate-500">
+    <div className="px-5 py-4">
+      <dt className="text-[11px] font-semibold uppercase tracking-[0.06em] text-ink-subtle dark:text-slate-500">
         {label}
       </dt>
-      <dd className="mt-1 text-ink dark:text-slate-100">{children}</dd>
+      <dd className="mt-1 text-sm text-ink dark:text-slate-100">{children}</dd>
     </div>
+  );
+}
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+
+function DotIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <circle cx="12" cy="12" r="4" />
+    </svg>
   );
 }
 
