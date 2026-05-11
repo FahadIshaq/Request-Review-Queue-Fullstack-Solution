@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SiteFooter } from "@/components/SiteFooter";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
+      <body className="flex min-h-screen flex-col">
         <header className="border-b border-slate-200 bg-white">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <Link
@@ -42,10 +43,10 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
-        <main className="mx-auto max-w-6xl px-6 py-8">{children}</main>
-        <footer className="mx-auto max-w-6xl px-6 pb-10 pt-4 text-xs text-ink-subtle">
-          Request Review Queue · internal tool
-        </footer>
+        <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-8">
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );
