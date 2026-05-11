@@ -75,25 +75,30 @@ export const STATUS_LABELS: Record<Status, string> = {
 };
 
 export const STATUS_PILL: Record<Status, string> = {
-  NEW: "bg-slate-100 text-slate-700",
-  IN_REVIEW: "bg-blue-100 text-blue-800",
-  NEEDS_INFO: "bg-amber-100 text-amber-800",
-  APPROVED: "bg-emerald-100 text-emerald-800",
-  REJECTED: "bg-red-100 text-red-800",
+  NEW: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
+  IN_REVIEW: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200",
+  NEEDS_INFO:
+    "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200",
+  APPROVED:
+    "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200",
+  REJECTED: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200",
 };
 
 export const PRIORITY_PILL: Record<Priority, string> = {
-  LOW: "bg-slate-100 text-slate-700",
-  MEDIUM: "bg-indigo-100 text-indigo-800",
-  HIGH: "bg-orange-100 text-orange-800",
-  URGENT: "bg-red-100 text-red-800",
+  LOW: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
+  MEDIUM:
+    "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-200",
+  HIGH: "bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200",
+  URGENT: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200",
 };
 
 export const DUE_PILL: Record<DueState, string> = {
-  ON_TRACK: "bg-slate-100 text-slate-600",
-  DUE_SOON: "bg-amber-100 text-amber-800",
-  OVERDUE: "bg-red-100 text-red-800",
-  NO_DUE_DATE: "bg-slate-100 text-slate-500",
+  ON_TRACK: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300",
+  DUE_SOON:
+    "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200",
+  OVERDUE: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200",
+  NO_DUE_DATE:
+    "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400",
 };
 
 export const DUE_LABEL: Record<DueState, string> = {
