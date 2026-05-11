@@ -53,17 +53,30 @@ export interface ListParams {
   owner?: string;
   due?: "due_soon" | "overdue";
   q?: string;
+  page?: number;
+  pageSize?: number;
 }
 
+export interface PagedResult<T> {
+  data: T[];
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+}
+
+export const DEFAULT_PAGE_SIZE = 10;
+
 export const api = {
-  async listRequests(params: ListParams = {}): Promise<RequestRecord[]> {
+  async listRequests(
+    params: ListParams = {}
+  ): Promise<PagedResult<RequestRecord>> {
     const q = new URLSearchParams();
     for (const [k, v] of Object.entries(params)) {
       if (v !== undefined && v !== "") q.set(k, String(v));
     }
     const suffix = q.toString() ? `?${q.toString()}` : "";
-    const res = await request<{ data: RequestRecord[] }>(`/requests${suffix}`);
-    return res.data;
+    return request<PagedResult<RequestRecord>>(`/requests${suffix}`);
   },
 
   async getRequest(id: string): Promise<RequestRecord> {
