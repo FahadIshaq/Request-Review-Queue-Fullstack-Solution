@@ -63,7 +63,7 @@ export function ApiStatusIndicator({ healthUrl }: { healthUrl: string }) {
 
   return (
     <div
-      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-ink-muted"
+      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-ink-muted dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
       role="status"
       aria-live="polite"
       title={

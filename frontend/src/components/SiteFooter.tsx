@@ -14,7 +14,7 @@ const YEAR = new Date().getFullYear();
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 border-t border-slate-200 bg-white">
+    <footer className="mt-12 border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
       <div className="mx-auto max-w-6xl px-6 py-10">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3 lg:col-span-1">
@@ -28,16 +28,16 @@ export function SiteFooter() {
                 alt="Request Review Queue"
                 width={690}
                 height={220}
-                className="h-8 w-auto"
+                className="h-8 w-auto dark:invert dark:brightness-95"
               />
             </Link>
-            <p className="max-w-xs text-sm text-ink-muted">
+            <p className="max-w-xs text-sm text-ink-muted dark:text-slate-400">
               Internal tool for triaging and approving incoming review
               requests. Built with explicit business rules and a full activity
               audit trail.
             </p>
-            <div className="pt-1 text-xs text-ink-subtle">
-              <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono">
+            <div className="pt-1 text-xs text-ink-subtle dark:text-slate-500">
+              <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
                 {APP_VERSION}
               </span>
             </div>
@@ -72,16 +72,27 @@ export function SiteFooter() {
           </FooterSection>
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-slate-100 pt-6 text-xs text-ink-subtle sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-slate-100 pt-6 text-xs text-ink-subtle dark:border-slate-800 dark:text-slate-500 sm:flex-row sm:items-center">
           <p>
             © {YEAR} Request Review Queue · Internal use only.
           </p>
           <p className="flex items-center gap-1.5">
             Built with
-            <span className="font-medium text-ink-muted">Next.js</span>·
-            <span className="font-medium text-ink-muted">Express</span>·
-            <span className="font-medium text-ink-muted">TypeScript</span>·
-            <span className="font-medium text-ink-muted">Tailwind</span>
+            <span className="font-medium text-ink-muted dark:text-slate-300">
+              Next.js
+            </span>
+            ·
+            <span className="font-medium text-ink-muted dark:text-slate-300">
+              Express
+            </span>
+            ·
+            <span className="font-medium text-ink-muted dark:text-slate-300">
+              TypeScript
+            </span>
+            ·
+            <span className="font-medium text-ink-muted dark:text-slate-300">
+              Tailwind
+            </span>
           </p>
         </div>
       </div>
@@ -98,7 +109,7 @@ function FooterSection({
 }) {
   return (
     <div>
-      <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+      <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-muted dark:text-slate-400">
         {title}
       </h3>
       <ul className="mt-3 space-y-2 text-sm">{children}</ul>
@@ -117,7 +128,7 @@ function FooterLink({
     <li>
       <Link
         href={href}
-        className="text-ink-muted transition hover:text-ink hover:underline"
+        className="text-ink-muted transition hover:text-ink hover:underline dark:text-slate-400 dark:hover:text-slate-100"
       >
         {children}
       </Link>
@@ -138,7 +149,7 @@ function FooterExternalLink({
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="break-all text-ink-muted transition hover:text-ink hover:underline"
+        className="break-all text-ink-muted transition hover:text-ink hover:underline dark:text-slate-400 dark:hover:text-slate-100"
       >
         {children}
       </a>
