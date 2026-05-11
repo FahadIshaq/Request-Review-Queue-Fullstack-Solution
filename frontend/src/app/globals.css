@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply bg-slate-50 text-ink;
+  }
+  body {
+    font-feature-settings: "ss01", "cv11";
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border px-3 py-1.5 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply border-slate-900 bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-700;
+  }
+  .btn-secondary {
+    @apply border-slate-300 bg-white text-slate-800 hover:bg-slate-100 focus:ring-slate-300;
+  }
+  .btn-danger {
+    @apply border-red-700 bg-red-600 text-white hover:bg-red-700 focus:ring-red-400;
+  }
+  .input {
+    @apply block w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm shadow-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500;
+  }
+  .label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-ink-muted;
+  }
+  .card {
+    @apply rounded-lg border border-slate-200 bg-white shadow-sm;
+  }
+  .pill {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+}
