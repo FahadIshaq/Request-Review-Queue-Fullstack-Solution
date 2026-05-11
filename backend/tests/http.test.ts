@@ -34,6 +34,48 @@ describe("HTTP API", () => {
     const list = await request(app).get("/api/requests");
     expect(list.status).toBe(200);
     expect(list.body.data).toHaveLength(1);
+    expect(list.body).toMatchObject({
+      page: 1,
+      pageSize: 10,
+      total: 1,
+      totalPages: 1,
+    });
+  });
+
+  it("paginates the list endpoint", async () => {
+    const { app } = buildHarness();
+    for (let i = 0; i < 12; i++) {
+      await request(app)
+        .post("/api/requests")
+        .send({ title: `T${i}`, submitter: "S" })
+        .expect(201);
+    }
+
+    const page1 = await request(app).get("/api/requests?pageSize=5");
+    expect(page1.status).toBe(200);
+    expect(page1.body.data).toHaveLength(5);
+    expect(page1.body).toMatchObject({
+      page: 1,
+      pageSize: 5,
+      total: 12,
+      totalPages: 3,
+    });
+
+    const page3 = await request(app).get("/api/requests?pageSize=5&page=3");
+    expect(page3.body.data).toHaveLength(2);
+    expect(page3.body.page).toBe(3);
+
+    // Out-of-range page clamps to the last page rather than 404'ing
+    const page99 = await request(app).get("/api/requests?pageSize=5&page=99");
+    expect(page99.body.page).toBe(3);
+    expect(page99.body.data).toHaveLength(2);
+  });
+
+  it("rejects invalid pagination params with 400", async () => {
+    const { app } = buildHarness();
+    const res = await request(app).get("/api/requests?page=0");
+    expect(res.status).toBe(400);
+    expect(res.body.code).toBe("invalid_request");
   });
 
   it("returns 422 with a typed code when business rules fail", async () => {

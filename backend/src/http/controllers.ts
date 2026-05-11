@@ -18,6 +18,8 @@ const listSchema = z.object({
   owner: z.string().optional(),
   due: z.enum(["due_soon", "overdue"]).optional(),
   q: z.string().optional(),
+  page: z.coerce.number().int().min(1).default(1),
+  pageSize: z.coerce.number().int().min(1).max(100).default(10),
 });
 
 const statusSchema = z.object({
@@ -50,9 +52,14 @@ export function buildControllers(service: RequestService) {
 
     async list(req: ExpressRequest, res: Response, next: NextFunction) {
       try {
-        const filters: ListFilters = listSchema.parse(req.query);
-        const results = await service.list(filters);
-        res.json({ data: results });
+        const { page, pageSize, ...filters } = listSchema.parse(req.query);
+        const all = await service.list(filters as ListFilters);
+        const total = all.length;
+        const totalPages = Math.max(1, Math.ceil(total / pageSize));
+        const safePage = Math.min(page, totalPages);
+        const start = (safePage - 1) * pageSize;
+        const data = all.slice(start, start + pageSize);
+        res.json({ data, page: safePage, pageSize, total, totalPages });
       } catch (err) {
         next(err);
       }
