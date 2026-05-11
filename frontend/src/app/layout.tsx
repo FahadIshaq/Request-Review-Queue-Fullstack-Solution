@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 
@@ -19,12 +20,17 @@ export default function RootLayout({
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <Link
               href="/"
-              className="flex items-center gap-2 text-base font-semibold text-ink"
+              aria-label="Request Review Queue — home"
+              className="inline-flex items-center"
             >
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-slate-900 text-xs font-bold text-white">
-                R
-              </span>
-              Request Review Queue
+              <Image
+                src="/logo.svg"
+                alt="Request Review Queue"
+                width={690}
+                height={220}
+                priority
+                className="h-9 w-auto sm:h-10"
+              />
             </Link>
             <nav className="flex items-center gap-4 text-sm text-ink-muted">
               <Link href="/" className="hover:text-ink">

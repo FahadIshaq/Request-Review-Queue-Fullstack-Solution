@@ -1,0 +1,35 @@
+<svg width="100%" viewBox="0 0 690 220" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Request Review Queue Logo</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Request Review Queue logo with stylized R and E lettermark icon on the left and text on the right</desc>
+
+  
+
+  <!-- Icon box: rounded square -->
+  <rect x="30" y="20" width="160" height="178" rx="28" ry="28" fill="none" stroke-width="9" style="fill:none;stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:9px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- R shape: vertical bar -->
+  <rect x="60" y="52" width="15" height="116" rx="4" fill="none" stroke-width="9" style="fill:none;stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:9px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- R shape: top bowl arc -->
+  <!-- Top horizontal bar of R -->
+  <line x1="60" y1="52" x2="140" y2="52" stroke-width="9" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:9px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- R bowl right curve top to mid -->
+  <path d="M 140,52 Q 165,52 165,85 Q 165,118 140,118" fill="none" stroke-width="9" stroke-linecap="round" style="fill:none;stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:9px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- R mid bar -->
+  <line x1="60" y1="118" x2="140" y2="118" stroke-width="9" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:9px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- R leg diagonal -->
+  <line x1="140" y1="118" x2="170" y2="168" stroke-width="9" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:9px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- E horizontal lines on the right half (inside the R bowl area as stylized E) -->
+  <!-- Top line of E -->
+  <line x1="88" y1="64" x2="148" y2="64" stroke-width="7" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:7px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Mid line of E -->
+  <line x1="88" y1="85" x2="135" y2="85" stroke-width="7" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:7px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Bottom line of E -->
+  <line x1="88" y1="106" x2="148" y2="106" stroke-width="7" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(26, 35, 64);color:rgb(0, 0, 0);stroke-width:7px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Text: REQUEST REVIEW -->
+  <text x="195.08" y="110" style="fill:rgb(26, 35, 64);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, sans-serif;font-size:52px;font-weight:600;text-anchor:start;dominant-baseline:auto">REQUEST REVIEW</text>
+  <!-- Text: QUEUE -->
+  <text x="195.08" y="176" style="fill:rgb(26, 35, 64);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, sans-serif;font-size:52px;font-weight:600;text-anchor:start;dominant-baseline:auto">QUEUE</text>
+</svg>
