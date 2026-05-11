@@ -15,7 +15,10 @@ export default async function RequestDetailPage({
     ]);
     return (
       <div className="space-y-6">
-        <Link href="/" className="text-sm text-ink-muted hover:underline">
+        <Link
+          href="/"
+          className="text-sm text-ink-muted hover:underline dark:text-slate-400"
+        >
           ← Back to queue
         </Link>
         <RequestDetail initial={request} owners={owners} />

@@ -21,7 +21,9 @@ export function HistoryTimeline({ events }: { events: HistoryEvent[] }) {
 
   return (
     <section className="card p-6">
-      <h2 className="text-base font-semibold text-ink">Activity history</h2>
+      <h2 className="text-base font-semibold text-ink dark:text-slate-100">
+        Activity history
+      </h2>
 
       <ol className="mt-4 space-y-4">
         {sorted.map((ev) => (
@@ -32,19 +34,23 @@ export function HistoryTimeline({ events }: { events: HistoryEvent[] }) {
             />
             <div className="flex-1">
               <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                <span className="text-sm font-medium text-ink">
+                <span className="text-sm font-medium text-ink dark:text-slate-100">
                   {EVENT_LABEL[ev.type]}
                 </span>
                 <time
-                  className="text-xs text-ink-subtle"
+                  className="text-xs text-ink-subtle dark:text-slate-500"
                   dateTime={ev.at}
                   title={ev.at}
                 >
                   {formatDateTime(ev.at)}
                 </time>
               </div>
-              <p className="text-sm text-ink-muted">{describe(ev)}</p>
-              <p className="text-xs text-ink-subtle">by {ev.actor}</p>
+              <p className="text-sm text-ink-muted dark:text-slate-400">
+                {describe(ev)}
+              </p>
+              <p className="text-xs text-ink-subtle dark:text-slate-500">
+                by {ev.actor}
+              </p>
             </div>
           </li>
         ))}

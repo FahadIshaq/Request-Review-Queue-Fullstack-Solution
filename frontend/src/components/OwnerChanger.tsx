@@ -55,7 +55,7 @@ export function OwnerChanger({
 
   return (
     <div className="card p-6">
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted">
+      <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-400">
         {request.owner ? "Reassign owner" : "Assign owner"}
       </h2>
 
@@ -98,7 +98,7 @@ export function OwnerChanger({
       )}
 
       {error && (
-        <p className="mt-3 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+        <p className="mt-3 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-200">
           {error}
         </p>
       )}

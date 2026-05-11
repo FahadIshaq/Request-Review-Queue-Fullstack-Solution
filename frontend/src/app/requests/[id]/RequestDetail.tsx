@@ -35,13 +35,13 @@ export function RequestDetail({
         <header className="card p-6">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="space-y-1">
-              <div className="text-xs uppercase tracking-wide text-ink-subtle">
+              <div className="text-xs uppercase tracking-wide text-ink-subtle dark:text-slate-500">
                 {request.id}
               </div>
-              <h1 className="text-2xl font-semibold text-ink">
+              <h1 className="text-2xl font-semibold text-ink dark:text-slate-100">
                 {request.title}
               </h1>
-              <p className="text-sm text-ink-muted">
+              <p className="text-sm text-ink-muted dark:text-slate-400">
                 Submitted by{" "}
                 <span className="font-medium">{request.submitter}</span> ·{" "}
                 {formatDateTime(request.createdAt)}
@@ -57,15 +57,21 @@ export function RequestDetail({
           <dl className="mt-6 grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
             <Field label="Owner">
               {request.owner ?? (
-                <span className="italic text-ink-subtle">Unassigned</span>
+                <span className="italic text-ink-subtle dark:text-slate-500">
+                  Unassigned
+                </span>
               )}
             </Field>
             <Field label="Due date">{formatDate(request.dueDate)}</Field>
             <Field label="Required fields">
               {request.requiredFieldsComplete ? (
-                <span className="font-medium text-emerald-700">Complete</span>
+                <span className="font-medium text-emerald-700 dark:text-emerald-300">
+                  Complete
+                </span>
               ) : (
-                <span className="font-medium text-amber-700">Incomplete</span>
+                <span className="font-medium text-amber-700 dark:text-amber-300">
+                  Incomplete
+                </span>
               )}
             </Field>
             <Field label="Last updated">
@@ -74,7 +80,7 @@ export function RequestDetail({
           </dl>
 
           {request.status === "REJECTED" && request.rejectionReason && (
-            <div className="mt-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+            <div className="mt-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-200">
               <div className="font-semibold">Rejection reason</div>
               <div>{request.rejectionReason}</div>
             </div>
@@ -87,10 +93,10 @@ export function RequestDetail({
 
       <aside className="space-y-6">
         <div className="card p-6">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-400">
             Acting as
           </h2>
-          <p className="mt-1 text-xs text-ink-subtle">
+          <p className="mt-1 text-xs text-ink-subtle dark:text-slate-500">
             Recorded on every history entry. Defaults to “system” if left blank.
           </p>
           <input
@@ -129,10 +135,10 @@ function Field({
 }) {
   return (
     <div>
-      <dt className="text-xs font-semibold uppercase tracking-wide text-ink-subtle">
+      <dt className="text-xs font-semibold uppercase tracking-wide text-ink-subtle dark:text-slate-500">
         {label}
       </dt>
-      <dd className="mt-1 text-ink">{children}</dd>
+      <dd className="mt-1 text-ink dark:text-slate-100">{children}</dd>
     </div>
   );
 }
@@ -140,16 +146,16 @@ function Field({
 function CurrentStatusCard({ request }: { request: RequestRecord }) {
   return (
     <div className="card p-6">
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted">
+      <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-400">
         Current status
       </h2>
       <div className="mt-3 flex items-center gap-2">
         <StatusPill status={request.status} />
-        <span className="text-sm text-ink-muted">
+        <span className="text-sm text-ink-muted dark:text-slate-400">
           {STATUS_LABELS[request.status]}
         </span>
       </div>
-      <p className="mt-3 text-xs text-ink-subtle">
+      <p className="mt-3 text-xs text-ink-subtle dark:text-slate-500">
         {request.requiredFieldsComplete
           ? "Required fields are complete — eligible for approval."
           : "Required fields are incomplete — cannot be approved yet."}

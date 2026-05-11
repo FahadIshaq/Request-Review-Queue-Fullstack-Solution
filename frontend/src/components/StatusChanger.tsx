@@ -61,10 +61,10 @@ export function StatusChanger({
   if (allowed.length === 0) {
     return (
       <div className="card p-6">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-400">
           Change status
         </h2>
-        <p className="mt-2 text-sm text-ink-muted">
+        <p className="mt-2 text-sm text-ink-muted dark:text-slate-400">
           This request is in a terminal state ({STATUS_LABELS[request.status]})
           and cannot transition further.
         </p>
@@ -74,7 +74,7 @@ export function StatusChanger({
 
   return (
     <div className="card p-6">
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted">
+      <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-400">
         Change status
       </h2>
 
@@ -113,13 +113,13 @@ export function StatusChanger({
       )}
 
       {approveBlocked && (
-        <p className="mt-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+        <p className="mt-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:border-amber-900/50 dark:bg-amber-900/20 dark:text-amber-200">
           Required fields are incomplete — approval will be rejected by the API.
         </p>
       )}
 
       {error && (
-        <p className="mt-3 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+        <p className="mt-3 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-200">
           {error}
         </p>
       )}
