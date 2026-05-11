@@ -5,56 +5,89 @@
 @layer base {
   html {
     color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   html.dark {
     color-scheme: dark;
   }
   html,
   body {
-    @apply bg-slate-50 text-ink transition-colors;
+    @apply bg-slate-50 text-ink;
     @apply dark:bg-slate-950 dark:text-slate-100;
   }
   body {
-    font-feature-settings: "ss01", "cv11";
+    font-feature-settings: "ss01", "cv11", "cv03";
+    @apply tracking-tightish;
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
   }
   ::selection {
-    @apply bg-slate-200 text-slate-900;
+    @apply bg-brand-200 text-brand-950;
   }
   .dark ::selection {
-    @apply bg-slate-700 text-slate-50;
+    @apply bg-brand-700 text-brand-50;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2 ring-offset-white;
+  }
+  .dark *:focus-visible {
+    @apply ring-offset-slate-950;
+  }
+  /* Respect reduced-motion users */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border px-3 py-1.5 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50;
-    @apply dark:focus:ring-offset-slate-950;
+    @apply inline-flex select-none items-center justify-center gap-1.5 rounded-lg border px-3.5 py-1.5 text-sm font-medium transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-primary {
-    @apply border-slate-900 bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-700;
-    @apply dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white dark:focus:ring-slate-300;
+    @apply border-transparent bg-brand-900 text-white shadow-sm hover:bg-brand-800 active:bg-brand-950;
+    @apply dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100;
   }
   .btn-secondary {
-    @apply border-slate-300 bg-white text-slate-800 hover:bg-slate-100 focus:ring-slate-300;
-    @apply dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800 dark:focus:ring-slate-600;
+    @apply border-slate-200 bg-white text-ink shadow-soft hover:bg-slate-50 hover:text-ink active:bg-slate-100;
+    @apply dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800;
+  }
+  .btn-ghost {
+    @apply border-transparent bg-transparent text-ink-muted hover:bg-slate-100 hover:text-ink;
+    @apply dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100;
   }
   .btn-danger {
-    @apply border-red-700 bg-red-600 text-white hover:bg-red-700 focus:ring-red-400;
-    @apply dark:border-red-500 dark:bg-red-600 dark:hover:bg-red-500;
+    @apply border-transparent bg-red-600 text-white shadow-sm hover:bg-red-700 active:bg-red-800;
   }
   .input {
-    @apply block w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm shadow-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500;
-    @apply dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-slate-400 dark:focus:ring-slate-400;
+    @apply block w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-ink shadow-soft transition placeholder:text-ink-subtle hover:border-slate-300 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200;
+    @apply dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:hover:border-slate-600 dark:focus:border-brand-400 dark:focus:ring-brand-900;
   }
   .label {
-    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-ink-muted;
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.06em] text-ink-muted;
     @apply dark:text-slate-400;
   }
   .card {
-    @apply rounded-lg border border-slate-200 bg-white shadow-sm;
+    @apply rounded-xl border border-slate-200/80 bg-white shadow-card;
     @apply dark:border-slate-800 dark:bg-slate-900 dark:shadow-none;
   }
+  .card-interactive {
+    @apply card transition-shadow hover:shadow-lift;
+  }
   .pill {
-    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold tracking-wide;
+  }
+  .kbd {
+    @apply rounded border border-slate-200 bg-white px-1.5 py-0.5 font-mono text-[10px] text-ink-muted shadow-soft;
+    @apply dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300;
   }
 }
