@@ -75,30 +75,35 @@ export const STATUS_LABELS: Record<Status, string> = {
 };
 
 export const STATUS_PILL: Record<Status, string> = {
-  NEW: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
-  IN_REVIEW: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200",
+  NEW: "bg-slate-100 text-slate-700 ring-1 ring-inset ring-slate-200 dark:bg-slate-800/60 dark:text-slate-300 dark:ring-slate-700",
+  IN_REVIEW:
+    "bg-blue-50 text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-200 dark:ring-blue-900/60",
   NEEDS_INFO:
-    "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200",
+    "bg-amber-50 text-amber-800 ring-1 ring-inset ring-amber-200 dark:bg-amber-900/30 dark:text-amber-200 dark:ring-amber-900/60",
   APPROVED:
-    "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200",
-  REJECTED: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200",
+    "bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-200 dark:ring-emerald-900/60",
+  REJECTED:
+    "bg-red-50 text-red-700 ring-1 ring-inset ring-red-200 dark:bg-red-900/30 dark:text-red-200 dark:ring-red-900/60",
 };
 
 export const PRIORITY_PILL: Record<Priority, string> = {
-  LOW: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
+  LOW: "bg-slate-100 text-slate-700 ring-1 ring-inset ring-slate-200 dark:bg-slate-800/60 dark:text-slate-300 dark:ring-slate-700",
   MEDIUM:
-    "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-200",
-  HIGH: "bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200",
-  URGENT: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200",
+    "bg-indigo-50 text-indigo-700 ring-1 ring-inset ring-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-200 dark:ring-indigo-900/60",
+  HIGH: "bg-orange-50 text-orange-700 ring-1 ring-inset ring-orange-200 dark:bg-orange-900/30 dark:text-orange-200 dark:ring-orange-900/60",
+  URGENT:
+    "bg-red-50 text-red-700 ring-1 ring-inset ring-red-200 dark:bg-red-900/30 dark:text-red-200 dark:ring-red-900/60",
 };
 
 export const DUE_PILL: Record<DueState, string> = {
-  ON_TRACK: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300",
+  ON_TRACK:
+    "bg-slate-100 text-slate-600 ring-1 ring-inset ring-slate-200 dark:bg-slate-800/60 dark:text-slate-300 dark:ring-slate-700",
   DUE_SOON:
-    "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200",
-  OVERDUE: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200",
+    "bg-amber-50 text-amber-800 ring-1 ring-inset ring-amber-200 dark:bg-amber-900/30 dark:text-amber-200 dark:ring-amber-900/60",
+  OVERDUE:
+    "bg-red-50 text-red-700 ring-1 ring-inset ring-red-200 dark:bg-red-900/30 dark:text-red-200 dark:ring-red-900/60",
   NO_DUE_DATE:
-    "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400",
+    "bg-slate-100 text-slate-500 ring-1 ring-inset ring-slate-200 dark:bg-slate-800/60 dark:text-slate-400 dark:ring-slate-700",
 };
 
 export const DUE_LABEL: Record<DueState, string> = {

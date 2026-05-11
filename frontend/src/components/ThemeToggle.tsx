@@ -29,7 +29,7 @@ export function ThemeToggle() {
     <div
       role="radiogroup"
       aria-label="Theme"
-      className="inline-flex items-center rounded-md border border-slate-200 bg-white p-0.5 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+      className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 dark:border-slate-700 dark:bg-slate-900"
     >
       {OPTIONS.map(({ value, label, Icon }) => {
         const active = mounted && theme === value;
@@ -43,10 +43,10 @@ export function ThemeToggle() {
             title={label}
             onClick={() => setTheme(value)}
             className={[
-              "inline-flex h-7 w-7 items-center justify-center rounded transition",
+              "inline-flex h-7 w-7 items-center justify-center rounded-md transition-all duration-150",
               active
-                ? "bg-slate-900 text-white shadow-sm dark:bg-slate-100 dark:text-slate-900"
-                : "text-ink-muted hover:bg-slate-100 hover:text-ink dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100",
+                ? "bg-white text-brand-900 shadow-soft dark:bg-slate-700 dark:text-brand-200"
+                : "text-ink-subtle hover:text-ink dark:text-slate-500 dark:hover:text-slate-100",
             ].join(" ")}
           >
             <Icon className="h-4 w-4" />
