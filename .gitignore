@@ -12,5 +12,9 @@ npm-debug.log*
 .DS_Store
 .vscode/
 .idea/
-data/*.json
-!data/seed.json
+**/data/*.json
+!**/data/seed.json
+!backend/src/data/**
+
+/package-lock.json
+/package.json
