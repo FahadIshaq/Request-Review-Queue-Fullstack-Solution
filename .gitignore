@@ -4,6 +4,7 @@ build/
 .next/
 out/
 coverage/
+*.tsbuildinfo
 *.log
 npm-debug.log*
 .env
