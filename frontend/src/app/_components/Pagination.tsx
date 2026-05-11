@@ -34,22 +34,25 @@ export function Pagination({
   const end = Math.min(page * pageSize, total);
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 bg-slate-50 px-4 py-3 text-sm">
-      <p className="text-ink-muted">
+    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 bg-slate-50 px-4 py-3 text-sm dark:border-slate-800 dark:bg-slate-900/60">
+      <p className="text-ink-muted dark:text-slate-400">
         {total === 0 ? (
           "No results"
         ) : (
           <>
             Showing{" "}
-            <span className="font-medium text-ink">
+            <span className="font-medium text-ink dark:text-slate-100">
               {start}–{end}
             </span>{" "}
-            of <span className="font-medium text-ink">{total}</span>
+            of{" "}
+            <span className="font-medium text-ink dark:text-slate-100">
+              {total}
+            </span>
           </>
         )}
         {pending && (
-          <span className="ml-3 inline-flex items-center text-xs text-ink-subtle">
-            <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-slate-300 border-t-slate-700" />
+          <span className="ml-3 inline-flex items-center text-xs text-ink-subtle dark:text-slate-500">
+            <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-slate-300 border-t-slate-700 dark:border-slate-700 dark:border-t-slate-200" />
             <span className="ml-1.5">Loading…</span>
           </span>
         )}
@@ -73,9 +76,15 @@ export function Pagination({
         >
           ‹ Prev
         </button>
-        <span className="px-2 text-xs text-ink-muted">
-          Page <span className="font-medium text-ink">{page}</span> of{" "}
-          <span className="font-medium text-ink">{totalPages}</span>
+        <span className="px-2 text-xs text-ink-muted dark:text-slate-400">
+          Page{" "}
+          <span className="font-medium text-ink dark:text-slate-100">
+            {page}
+          </span>{" "}
+          of{" "}
+          <span className="font-medium text-ink dark:text-slate-100">
+            {totalPages}
+          </span>
         </span>
         <button
           type="button"

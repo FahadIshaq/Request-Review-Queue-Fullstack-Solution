@@ -138,12 +138,12 @@ export function FilterBar({
 
       <div className="flex h-6 items-center justify-end gap-3 text-xs">
         <span
-          className={`text-ink-subtle transition-opacity ${
+          className={`text-ink-subtle transition-opacity dark:text-slate-500 ${
             pending ? "opacity-100" : "opacity-0"
           }`}
           aria-live="polite"
         >
-          <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-slate-300 border-t-slate-700 align-middle" />
+          <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-slate-300 border-t-slate-700 align-middle dark:border-slate-700 dark:border-t-slate-200" />
           <span className="ml-2">Updating…</span>
         </span>
         <button

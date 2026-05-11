@@ -64,13 +64,15 @@ export default async function HomePage({
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold text-ink">Review queue</h1>
-          <p className="mt-1 text-sm text-ink-muted">
+          <h1 className="text-2xl font-semibold text-ink dark:text-slate-100">
+            Review queue
+          </h1>
+          <p className="mt-1 text-sm text-ink-muted dark:text-slate-400">
             {paged.total} request{paged.total === 1 ? "" : "s"}
             {counts.overdue > 0 && (
               <>
                 {" · "}
-                <span className="font-medium text-red-700">
+                <span className="font-medium text-red-700 dark:text-red-300">
                   {counts.overdue} overdue on this page
                 </span>
               </>
@@ -78,7 +80,7 @@ export default async function HomePage({
             {counts.dueSoon > 0 && (
               <>
                 {" · "}
-                <span className="font-medium text-amber-700">
+                <span className="font-medium text-amber-700 dark:text-amber-300">
                   {counts.dueSoon} due soon on this page
                 </span>
               </>
@@ -94,10 +96,10 @@ export default async function HomePage({
 
       {paged.data.length === 0 ? (
         <div className="card flex flex-col items-center gap-2 px-6 py-16 text-center">
-          <p className="text-base font-medium text-ink">
+          <p className="text-base font-medium text-ink dark:text-slate-100">
             No requests match these filters.
           </p>
-          <p className="text-sm text-ink-muted">
+          <p className="text-sm text-ink-muted dark:text-slate-400">
             Try clearing the filters above or{" "}
             <Link className="underline" href="/new">
               create a new request
@@ -108,8 +110,8 @@ export default async function HomePage({
       ) : (
         <div className="card overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-slate-200 text-sm">
-              <thead className="bg-slate-50 text-left text-xs uppercase tracking-wide text-ink-muted">
+            <table className="min-w-full divide-y divide-slate-200 text-sm dark:divide-slate-800">
+              <thead className="bg-slate-50 text-left text-xs uppercase tracking-wide text-ink-muted dark:bg-slate-900/60 dark:text-slate-400">
                 <tr>
                   <th className="px-4 py-3">Title</th>
                   <th className="px-4 py-3">Status</th>
@@ -119,17 +121,22 @@ export default async function HomePage({
                   <th className="px-4 py-3">Submitter</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {paged.data.map((r) => (
-                  <tr key={r.id} className="hover:bg-slate-50">
+                  <tr
+                    key={r.id}
+                    className="hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                  >
                     <td className="px-4 py-3">
                       <Link
                         href={`/requests/${r.id}`}
-                        className="font-medium text-ink hover:underline"
+                        className="font-medium text-ink hover:underline dark:text-slate-100"
                       >
                         {r.title}
                       </Link>
-                      <div className="text-xs text-ink-subtle">{r.id}</div>
+                      <div className="text-xs text-ink-subtle dark:text-slate-500">
+                        {r.id}
+                      </div>
                     </td>
                     <td className="px-4 py-3">
                       <StatusPill status={r.status} />
@@ -137,22 +144,24 @@ export default async function HomePage({
                     <td className="px-4 py-3">
                       <PriorityPill priority={r.priority} />
                     </td>
-                    <td className="px-4 py-3 text-ink-muted">
+                    <td className="px-4 py-3 text-ink-muted dark:text-slate-400">
                       {r.owner ?? (
-                        <span className="italic text-ink-subtle">
+                        <span className="italic text-ink-subtle dark:text-slate-500">
                           Unassigned
                         </span>
                       )}
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
-                        <span className="text-ink-muted">
+                        <span className="text-ink-muted dark:text-slate-400">
                           {formatDate(r.dueDate)}
                         </span>
                         <DuePill state={r.dueState} />
                       </div>
                     </td>
-                    <td className="px-4 py-3 text-ink-muted">{r.submitter}</td>
+                    <td className="px-4 py-3 text-ink-muted dark:text-slate-400">
+                      {r.submitter}
+                    </td>
                   </tr>
                 ))}
               </tbody>
